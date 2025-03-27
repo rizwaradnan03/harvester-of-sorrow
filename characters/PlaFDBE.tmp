@@ -435,9 +435,7 @@ shape = SubResource("CircleShape2D_xitfx")
 
 [node name="Movement" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xmlw5")
-animation = &"attack_back"
-frame = 3
-frame_progress = 0.893002
+animation = &"idle_back"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -448,5 +446,3 @@ position = Vector2(-0.5, 3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_e2cxx")
-
-[connection signal="animation_finished" from="Movement" to="." method="_on_movement_animation_finished"]
