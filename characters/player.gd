@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 60.0
 const JUMP_VELOCITY = -400.0
 
@@ -18,6 +17,14 @@ func _stop_movement():
 	is_hitting = false
 	velocity.x = 0
 	velocity.y = 0
+
+func _get_last_direction():
+	if anim_player.animation == "move_front" or anim_player.animation == "attack_front":
+		anim_player.play("idle_front")
+	elif anim_player.animation == "move_back" or anim_player.animation == "attack_back":
+		anim_player.play("idle_back")
+	elif anim_player.animation == "move_side" or anim_player.animation == "attack_side":
+		anim_player.play("idle_side")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_front") && is_moving == false:
@@ -68,20 +75,18 @@ func _physics_process(delta: float) -> void:
 		elif anim_player.animation == "move_side" or anim_player.animation == "idle_side":
 			anim_player.play("attack_side")
 
-	if is_moving == false:
-		if anim_player.animation == "move_front":
-			anim_player.play("idle_front")
-		elif anim_player.animation == "move_back":
-			anim_player.play("idle_back")
-		elif anim_player.animation == "move_side":
-			anim_player.play("idle_side")
+	if anim_player.animation == "attack_front" or anim_player.animation == "attack_side" or anim_player.animation == "attack_back":
+		if anim_player.frame == anim_player.sprite_frames.get_frame_count(anim_player.animation) - 1:
+			is_hitting = false
 			
+
+	if is_moving == false and is_hitting == false:
+		_get_last_direction()
 	else:
 		move_and_slide()
 
 
 func _on_movement_animation_finished(anim_name) -> void:
-	print("apakah selesai pler", anim_name)
 	if anim_name.begins_with("attack_"):
 		is_hitting = false
 		_stop_movement()
