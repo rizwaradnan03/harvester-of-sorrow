@@ -3,8 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Global.player_data:
-		add_child(Global.player_data)
+	if Global.packaged_player:
+		add_child(Global.packaged_player)
+		Global.packaged_player = null
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

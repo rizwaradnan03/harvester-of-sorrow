@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://3idsah1xsv6a"]
+[gd_scene load_steps=38 format=4 uid="uid://3idsah1xsv6a"]
 
 [ext_resource type="Texture2D" uid="uid://berxcdt7gqs25" path="res://assets/Tiles/Water_Tile.png" id="2_11nug"]
 [ext_resource type="Texture2D" uid="uid://bvf0ew64rm5n" path="res://assets/Tiles/Water_Middle.png" id="2_uv6jn"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxhw7bac87jqw" path="res://assets/Outdoor decoration/Oak_Tree_Small.png" id="14_enex5"]
 [ext_resource type="Texture2D" uid="uid://bx0r1c75sbhls" path="res://assets/Outdoor decoration/Outdoor_Decor_Free.png" id="15_4kld1"]
 [ext_resource type="PackedScene" uid="uid://dtpvoph7k2fkc" path="res://components/House.tscn" id="16_vens4"]
+[ext_resource type="PackedScene" uid="uid://c20iqdu4lrcn" path="res://characters/Enemy1.tscn" id="17_ra0om"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1koht"]
 texture = ExtResource("2_uv6jn")
@@ -441,3 +442,6 @@ position = Vector2(415, 105)
 
 [node name="Player" parent="." instance=ExtResource("9_43y4l")]
 position = Vector2(165, 91)
+
+[node name="Enemy1" parent="." instance=ExtResource("17_ra0om")]
+position = Vector2(215, 93)

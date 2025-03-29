@@ -84,7 +84,8 @@ func _physics_process(delta: float) -> void:
 		_get_last_direction()
 	else:
 		move_and_slide()
-
+		
+	Global.position_player = position
 
 func _on_movement_animation_finished(anim_name) -> void:
 	if anim_name.begins_with("attack_"):

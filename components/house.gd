@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		Global.player_data = body
+		Global.packaged_player = body
 		body.get_parent().remove_child(body)
 		get_tree().change_scene_to_file("res://scenes/game/Home.tscn")
